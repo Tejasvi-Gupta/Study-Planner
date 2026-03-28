@@ -1,0 +1,96 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Color Palette from Image ────────────────────────────────────────────── */
+/* #0B0C10 · #1F2833 · #C5C6C7 · #66FCF1 · #45A29E                         */
+
+:root {
+  /* Brand palette */
+  --c-darkest:   #0B0C10;
+  --c-dark:      #1F2833;
+  --c-silver:    #C5C6C7;
+  --c-cyan:      #66FCF1;
+  --c-teal:      #45A29E;
+
+  /* Semantic tokens — LIGHT MODE */
+  --bg:          #f0f4f5;
+  --bg-card:     #ffffff;
+  --bg-subtle:   #e4eaec;
+  --sidebar-bg:  var(--c-darkest);
+  --sidebar-nav-active: var(--c-teal);
+  --text:        var(--c-dark);
+  --text-soft:   #4a5a60;
+  --text-muted:  #8a9aa0;
+  --border:      #d6e0e3;
+  --accent:      var(--c-teal);
+  --accent-glow: var(--c-cyan);
+  --highlight:   var(--c-cyan);
+  --success:     #45A29E;
+  --danger:      #e05c5c;
+  --warn:        #e0a85c;
+  --shadow:      0 4px 24px rgba(11,12,16,0.10);
+  --shadow-lg:   0 8px 40px rgba(11,12,16,0.18);
+  --shadow-glow: 0 0 20px rgba(102,252,241,0.18);
+
+  --sidebar-w: 240px;
+  --radius: 12px;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ── DARK MODE ─────────────────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg:          var(--c-darkest);
+  --bg-card:     var(--c-dark);
+  --bg-subtle:   #161c22;
+  --sidebar-bg:  #080910;
+  --sidebar-nav-active: var(--c-teal);
+  --text:        var(--c-silver);
+  --text-soft:   #9aaab0;
+  --text-muted:  #566870;
+  --border:      #2a3540;
+  --accent:      var(--c-teal);
+  --accent-glow: var(--c-cyan);
+  --shadow:      0 4px 24px rgba(0,0,0,0.40);
+  --shadow-lg:   0 8px 40px rgba(0,0,0,0.55);
+  --shadow-glow: 0 0 28px rgba(102,252,241,0.12);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+}
+
+button { cursor: pointer; border: none; font-family: var(--font-body); }
+input, select, textarea {
+  font-family: var(--font-body);
+  background: var(--bg-card);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-subtle); }
+::-webkit-scrollbar-thumb { background: var(--c-teal); border-radius: 3px; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(102,252,241,0.3); }
+  50%       { box-shadow: 0 0 24px rgba(102,252,241,0.7); }
+}
+@keyframes themeFade {
+  from { opacity: 0.6; transform: scale(0.96); }
+  to   { opacity: 1;   transform: scale(1); }
+}
