@@ -177,3 +177,21 @@
   .nav-label { display: none; }
   .nav-item { flex-direction: column; padding: 8px 16px; gap: 2px; }
 }
+
+.logout-btn {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 1rem;
+  background: transparent;
+  border: 1px solid #ff4444;
+  color: #ff4444;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.logout-btn:hover {
+  background: #ff4444;
+  color: #fff;
+}

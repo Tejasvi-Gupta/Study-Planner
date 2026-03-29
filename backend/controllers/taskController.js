@@ -1,6 +1,5 @@
 const Task = require("../models/Task");
 
-// ─── GET ALL TASKS ───────────────────────────────────
 const getTasks = async (req, res) => {
   try {
     const tasks = await Task.find({ userId: req.user.id });
@@ -10,18 +9,18 @@ const getTasks = async (req, res) => {
   }
 };
 
-// ─── CREATE TASK ─────────────────────────────────────
 const createTask = async (req, res) => {
   try {
-    const { title, subject, deadline, priority, status } = req.body;
+    const { title, subject, dueDate, priority, status, progress } = req.body;
 
     const task = await Task.create({
       userId: req.user.id,
       title,
       subject,
-      deadline,
+      dueDate,
       priority,
-      status
+      status,
+      progress: progress || 0
     });
 
     res.status(201).json(task);
@@ -30,7 +29,6 @@ const createTask = async (req, res) => {
   }
 };
 
-// ─── UPDATE TASK ─────────────────────────────────────
 const updateTask = async (req, res) => {
   try {
     const task = await Task.findOneAndUpdate(
@@ -49,7 +47,6 @@ const updateTask = async (req, res) => {
   }
 };
 
-// ─── DELETE TASK ─────────────────────────────────────
 const deleteTask = async (req, res) => {
   try {
     const task = await Task.findOneAndDelete({

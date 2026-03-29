@@ -7,7 +7,7 @@ const NAV = [
   { id: 'timetable',  icon: '◷', label: 'Time Table'   },
 ]
 
-export default function Sidebar({ activeTab, setActiveTab, studentName, stats, theme, toggleTheme }) {
+export default function Sidebar({ activeTab, setActiveTab, studentName, stats, theme, toggleTheme, onLogout }) {
   const completion = stats.total > 0 ? Math.round((stats.completed / stats.total) * 100) : 0
 
   return (
@@ -71,6 +71,12 @@ export default function Sidebar({ activeTab, setActiveTab, studentName, stats, t
             <div key={c} className="p-dot" style={{ background: c }} title={c} />
           ))}
         </div>
+
+        {/* ── Logout Button ── */}
+        <button className="logout-btn" onClick={onLogout}>
+          🚪 Logout
+        </button>
+
       </div>
     </aside>
   )
