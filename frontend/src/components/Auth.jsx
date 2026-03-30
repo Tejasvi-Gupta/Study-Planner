@@ -23,8 +23,8 @@ function Auth({ onLogin }) {
 
     try {
       const url = isLogin
-        ? "/api/auth/login"
-        : "/api/auth/register";
+        ? "https://study-planner-1cey.onrender.com/api/auth/login"
+        : "https://study-planner-1cey.onrender.com/api/auth/register";
 
       const payload = isLogin
         ? { email: formData.email, password: formData.password }
